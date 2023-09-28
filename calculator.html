@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Simple Calculator</title>
+      <style>
+         body {
+         font-family: Arial, sans-serif;
+         margin: 20px;
+         }
+         .calculator {
+         max-width: 400px;
+         margin: 0 auto;
+         background-color: #f0f0f0;
+         border-radius: -2pxpx;
+         padding: 20px;
+         text-align: 20px;
+         }
+         .calculator h1 {
+         margin: 0;
+         font-size: 24px;
+         text-align: left;
+         margin-bottom: -12px;
+         padding-left: 20px;
+         }
+         .calculator h2 {
+         text-align: left;
+         margin-bottom: 22px;
+         padding-left: 25px;
+         font-size: 14px;
+         margin-top: 12px;
+         opacity: 0.7;
+         }
+         .calculator h6 {
+         margin-bottom: 10px;
+         text-align: left;
+         margin-left: 10px;
+         }
+         .calculator input {
+         /* width: calc(100% - 22px); */
+         padding: 5px;
+         margin-bottom: 20px;
+         width: 134px
+         }
+         .calculator button {
+         width: 154px;
+         padding: 10px;
+         background-color: #4caf50;
+         border: none;
+         border-radius: 5px;
+         color: #fff;
+         cursor: pointer;
+         margin-left: 122px;
+         }
+         .radio-calc-group{
+         margin-left:94px;
+         }
+         .radio-calc-group input{
+         width: 10px!important;
+         padding-left: 10px;
+         }
+         .radio-calc-group lable{
+         padding-left: 5px;            
+         }
+         .result {
+         width: 426px;
+         margin: 20px auto;
+         background-color: #f0f0f0;
+         border-radius: -11px;
+         padding: 10px;
+         text-align: center;
+      
+         }
+         .label-text {
+         font-size: 16px;
+         font-weight: bold;
+         margin-bottom: 5px;
+         margin-left: 25px;
+         }
+         .result h2{
+            color:purple;
+            font-size: xx-large;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="calculator">
+         <h1>Simple Calculator</h1>
+         <h2>A simple form to two numbers</h2>
+         <form>
+            <div>
+               <label class="label-text" for="number1">Number1</label>
+               <input type="number" id="number1" name="number1" required>
+            </div>
+            <div>
+               <label class="label-text" for="number2">Number2</label>
+               <input type="number" id="number2" name="number2" required>
+            </div>
+            <div class="radio-calc-group">
+               <label for="add">
+               <input type="radio" id="add" name="operation" value="add" required>
+               Add
+               </label>
+               <label for="subtract">
+               <input type="radio" id="subtract" name="operation" value="subtract">
+               Subtract
+               </label>
+               <label for="multiply">
+               <input type="radio" id="multiply" name="operation" value="multiply">
+               Multiply
+               </label>
+               <label for="divide">
+               <input type="radio" id="divide" name="operation" value="divide">
+               Divide
+               </label>
+            </div>
+            <button type="button" onclick="calculator()">Calculate</button>
+         </form>
+      </div>
+      <div class="result">
+         <h1>Answer</h1>
+         <h2 id="result">0</h2>
+      </div>
+   </body>
+   <script>
+      function calculator(){
+              let number1 = document.getElementById("number1").value;
+              let number2 = document.getElementById("number2").value;
+              let operation = document.querySelector('input[name="operation"]:checked').value;
+              let result = document.getElementById("result");
+      
+              let sum;
+      
+              if (operation === "add") {
+                  sum = parseInt(number1) + parseInt(number2);
+              } else if (operation === "subtract") {
+                  sum = parseInt(number1) - parseInt(number2);
+              } else if (operation === "multiply") {
+                  sum = parseInt(number1) * parseInt(number2);
+              } else if (operation === "divide") {
+                  sum = parseInt(number1) / parseInt(number2);
+              }
+          
+              result.textContent = sum;
+          
+            }   
+   </script>
+</html>
